@@ -1,14 +1,7 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
 
-/**
- * Axios client terpusat untuk komunikasi dengan backend NestJS
- * - Base URL dari NEXT_PUBLIC_API_URL
- * - withCredentials: true agar cookie httpOnly otomatis terkirim
- * - Interceptor: jika 401 → redirect ke /login
- */
-
 const axiosClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://e-commerce-be-eosin.vercel.app',
   withCredentials: true, // penting: kirim cookie access_token otomatis
   headers: {
     'Content-Type': 'application/json',
