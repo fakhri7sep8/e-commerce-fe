@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import axiosClient from '@/lib/axiosClient';
 import { User } from '@/types';
+import Cookies from 'js-cookie';
 
 interface LoginResponse {
   id: string;
@@ -61,22 +62,18 @@ export function useAuth() {
     }
   };
 
-  /**
-   * Logout user
-   * Backend akan clear cookie access_token
-   */
-  const logout = async () => {
-    setLoading(true);
-    try {
-      await axiosClient.post('/auth/logout');
-      // Redirect ke halaman login
-      window.location.href = '/login';
-    } catch (err: any) {
-      setError('Logout gagal');
-    } finally {
-      setLoading(false);
-    }
-  };
+const logout = async () => {
+  setLoading(true);
+  try {
+    await axiosClient.post('/auth/logout');
+    Cookies.remove('access_token'); // ← tambah ini
+    window.location.href = '/login';
+  } catch (err: any) {
+    setError('Logout gagal');
+  } finally {
+    setLoading(false);
+  }
+};
 
   /**
    * Ambil profile user dari token yang ada di cookie
