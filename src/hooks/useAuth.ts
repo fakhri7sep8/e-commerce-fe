@@ -1,14 +1,14 @@
-'use client';
-import { useState } from 'react';
-import axiosClient from '@/lib/axiosClient';
-import { User } from '@/types';
-import Cookies from 'js-cookie';
+"use client";
+import { useState } from "react";
+import axiosClient from "@/lib/axiosClient";
+import { User } from "@/types";
+import Cookies from "js-cookie";
 
 interface LoginResponse {
   id: string;
   name: string;
   email: string;
-  role: 'customer' | 'admin';
+  role: "customer" | "admin";
   access_token: string;
 }
 
@@ -29,14 +29,20 @@ export function useAuth() {
    * Login user
    * Cookie access_token otomatis diset oleh backend (httpOnly)
    */
-  const login = async (email: string, password: string): Promise<LoginResponse> => {
+  const login = async (
+    email: string,
+    password: string,
+  ): Promise<LoginResponse> => {
     setLoading(true);
     setError(null);
     try {
-      const res = await axiosClient.post<LoginResponse>('/auth/login', { email, password });
+      const res = await axiosClient.post<LoginResponse>("/auth/login", {
+        email,
+        password,
+      });
       return res.data;
     } catch (err: any) {
-      const message = err.response?.data?.message || 'Login gagal';
+      const message = err.response?.data?.message || "Login gagal";
       setError(message);
       throw err;
     } finally {
@@ -51,10 +57,10 @@ export function useAuth() {
     setLoading(true);
     setError(null);
     try {
-      const res = await axiosClient.post('/auth/register', data);
+      const res = await axiosClient.post("/auth/register", data);
       return res.data;
     } catch (err: any) {
-      const message = err.response?.data?.message || 'Registrasi gagal';
+      const message = err.response?.data?.message || "Registrasi gagal";
       setError(message);
       throw err;
     } finally {
@@ -62,26 +68,23 @@ export function useAuth() {
     }
   };
 
-const logout = async () => {
-  setLoading(true);
-  try {
-    await axiosClient.post('/auth/logout');
-    Cookies.remove('access_token'); // ← tambah ini
-    window.location.href = '/login';
-  } catch (err: any) {
-    setError('Logout gagal');
-  } finally {
-    setLoading(false);
-  }
-};
+  const logout = async () => {
+    setLoading(true);
+    try {
+      await axiosClient.post("/auth/logout");
+      Cookies.remove("access_token"); // ← tambah ini
+      window.location.href = "/login";
+    } catch (err: any) {
+      setError("Logout gagal");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  /**
-   * Ambil profile user dari token yang ada di cookie
-   */
   const getProfile = async (): Promise<User> => {
     setLoading(true);
     try {
-      const res = await axiosClient.get<User>('/auth/profile');
+      const res = await axiosClient.get<User>("/auth/profile");
       return res.data;
     } catch (err: any) {
       throw err;
