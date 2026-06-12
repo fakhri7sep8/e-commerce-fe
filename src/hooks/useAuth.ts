@@ -8,6 +8,7 @@ interface LoginResponse {
   name: string;
   email: string;
   role: 'customer' | 'admin';
+  access_token: string;
 }
 
 interface RegisterData {

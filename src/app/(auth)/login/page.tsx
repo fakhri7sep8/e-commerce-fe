@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 import Swal from "sweetalert2";
+import Cookies from 'js-cookie';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -35,6 +36,14 @@ export default function LoginPage() {
 
     try {
       const user = await login(email, password);
+
+      // Menyimpan access token ke dalam cookies selama 15 menit (1/96 hari)
+      Cookies.set('access_token', (user as any).access_token, {
+        expires: 1 / 96, // 15 menit
+        secure: true,
+        sameSite: 'strict',
+      });
+
       const redirectPath = user.role === "admin" ? "/admin" : "/products";
 
       Swal.fire({
