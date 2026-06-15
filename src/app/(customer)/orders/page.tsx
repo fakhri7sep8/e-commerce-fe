@@ -5,9 +5,7 @@ import { useOrders } from '@/hooks/useOrders';
 import { Order } from '@/types';
 import Swal from 'sweetalert2';
 
-/**
- * Desain Badge Status yang Modern (Solid border dengan latar transparan)
- */
+
 const statusStyles: Record<string, string> = {
   pending: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/30 dark:text-amber-400 dark:border-amber-900/50',
   paid: 'bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-950/30 dark:text-indigo-400 dark:border-indigo-900/50',
@@ -41,9 +39,7 @@ export default function OrdersPage() {
         });
       })
       .finally(() => setLoading(false));
-  }, []);
-
-  // Modern Pulse Skeleton Loading
+  }, []);
   if (loading) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-8 animate-pulse space-y-6">
@@ -57,7 +53,7 @@ export default function OrdersPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 selection:bg-indigo-500 selection:text-white">
       
-      {/* Page Title */}
+      
       <div className="mb-8">
         <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-2.5">
           <span>Riwayat Pesanan</span>
@@ -87,7 +83,7 @@ export default function OrdersPage() {
               key={order.id}
               className="bg-white dark:bg-zinc-900 rounded-2xl border border-slate-200/60 dark:border-zinc-800/80 shadow-sm p-5 sm:p-6 transition-all hover:border-slate-300 dark:hover:border-zinc-700"
             >
-              {/* Header Card: ID, Tanggal, & Badge Status */}
+              
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 border-b border-slate-100 dark:border-zinc-800 gap-3">
                 <div className="space-y-0.5">
                   <p className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
@@ -104,7 +100,7 @@ export default function OrdersPage() {
                   </p>
                 </div>
 
-                {/* Status Badge */}
+                
                 <span
                   className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full border ${
                     statusStyles[order.status] || 'bg-slate-100 text-slate-800 border-slate-200'
@@ -114,7 +110,7 @@ export default function OrdersPage() {
                 </span>
               </div>
 
-              {/* DESKTOP VIEW: Items Table */}
+              
               <div className="hidden md:block pt-4 overflow-hidden">
                 <table className="w-full text-left border-collapse">
                   <thead>
@@ -146,7 +142,7 @@ export default function OrdersPage() {
                 </table>
               </div>
 
-              {/* MOBILE VIEW: Compact Item List Cards */}
+              
               <div className="block md:hidden pt-4 space-y-3">
                 {order.items.map((item) => (
                   <div key={item.id} className="bg-slate-50/50 dark:bg-zinc-950 p-3 rounded-xl border border-slate-100 dark:border-zinc-800/60 flex justify-between items-center text-xs">
@@ -163,7 +159,7 @@ export default function OrdersPage() {
                 ))}
               </div>
 
-              {/* Bottom Card Footer: Total Price Ringkasan */}
+              
               <div className="border-t border-slate-100 dark:border-zinc-800 pt-4 mt-4 flex justify-between items-center">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                   Total Pembayaran

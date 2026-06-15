@@ -13,9 +13,7 @@ export default function RegisterPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  
-  // State untuk show/hide password secara terpisah
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -87,13 +85,13 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6 md:p-8 relative selection:bg-indigo-500 selection:text-white">
       
-      {/* Background Decorative Glow */}
+      
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[450px] pointer-events-none opacity-30 dark:opacity-20 blur-[130px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" />
 
-      {/* Main Card Container */}
+      
       <div className="w-full max-w-4xl bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl shadow-indigo-500/5 border border-slate-200/60 dark:border-zinc-800/80 overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[600px] relative z-10">
         
-        {/* KOLOM KIRI: Visual Branding */}
+        
         <div className="hidden md:flex bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-700 p-10 flex-col justify-between relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_50%)]" />
           
@@ -118,10 +116,10 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        {/* KOLOM KANAN: Form Register */}
+        
         <div className="flex flex-col justify-center p-6 sm:p-10 md:p-12 bg-white dark:bg-zinc-900 w-full">
           
-          {/* Header Mobile Only */}
+          
           <div className="flex justify-between items-center md:hidden mb-6">
             <Link href="/" className="flex items-center gap-2 font-black text-lg tracking-tight text-slate-900 dark:text-white">
               <span className="bg-indigo-600 text-white p-1.5 rounded-lg text-xs">🛒</span>
@@ -132,7 +130,7 @@ export default function RegisterPage() {
             </Link>
           </div>
 
-          {/* Back Button Laptop Only */}
+          
           <div className="hidden md:block mb-4">
             <Link href="/" className="inline-flex items-center text-xs font-bold text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group">
               <svg className="w-3.5 h-3.5 mr-1 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +140,7 @@ export default function RegisterPage() {
             </Link>
           </div>
 
-          {/* Form Title */}
+          
           <div className="mb-5">
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-1.5">
               Daftar Akun
@@ -152,10 +150,10 @@ export default function RegisterPage() {
             </p>
           </div>
 
-          {/* Form Utama */}
+          
           <form onSubmit={handleSubmit} className="space-y-3.5">
             
-            {/* Input Nama */}
+            
             <div className="space-y-1">
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
                 Nama Lengkap
@@ -170,7 +168,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Input Email */}
+            
             <div className="space-y-1">
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
                 Email
@@ -185,7 +183,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Input Password */}
+            
             <div className="space-y-1">
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
                 Password
@@ -219,7 +217,7 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {/* Input Konfirmasi Password */}
+            
             <div className="space-y-1">
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
                 Konfirmasi Password
@@ -253,7 +251,7 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {/* Tombol Register */}
+            
             <button
               type="submit"
               disabled={loading}
@@ -273,7 +271,7 @@ export default function RegisterPage() {
             </button>
           </form>
 
-          {/* Footer Link ke Login */}
+          
           <div className="mt-5 pt-4 border-t border-slate-100 dark:border-zinc-800 text-center">
             <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
               Sudah punya akun?{' '}

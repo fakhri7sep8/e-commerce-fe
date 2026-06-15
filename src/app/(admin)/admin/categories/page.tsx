@@ -6,16 +6,12 @@ import { Category } from '@/types';
 import { FolderPlus, Pencil, Trash2, Save, X, Layers } from 'lucide-react';
 import Swal from 'sweetalert2';
 
-/**
- * Halaman manajemen kategori (Admin Premium)
- */
+
 export default function AdminCategoriesPage() {
   const { getAll, create, update, remove } = useCategories();
 
   const [categories, setCategories] = useState<Category[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // State form inline
+  const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [newName, setNewName] = useState('');
   const [editName, setEditName] = useState('');
@@ -126,7 +122,7 @@ export default function AdminCategoriesPage() {
   return (
     <div className="w-full space-y-8 selection:bg-indigo-500 selection:text-white">
       
-      {/* Dashboard Headline */}
+      
       <div>
         <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white">
           Manajemen Kategori
@@ -136,7 +132,7 @@ export default function AdminCategoriesPage() {
         </p>
       </div>
 
-      {/* Form Tambah Kategori */}
+      
       <div className="bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800/80 rounded-2xl shadow-sm p-4 flex gap-3 items-center">
         <div className="flex-1 relative">
           <input
@@ -157,10 +153,10 @@ export default function AdminCategoriesPage() {
         </button>
       </div>
 
-      {/* Main Container Tabel */}
+      
       <div className="bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800/80 rounded-2xl shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
-          {/* Dikunci menggunakan table-fixed agar presisi lurus */}
+          
           <table className="w-full table-fixed min-w-[700px] text-sm">
             <thead className="bg-slate-50 dark:bg-zinc-950/60 border-b border-slate-200/60 dark:border-zinc-800/80 text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500">
               <tr>
@@ -171,7 +167,7 @@ export default function AdminCategoriesPage() {
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-zinc-800/50">
               
-              {/* Shimmer Bone Skeleton Loader */}
+              
               {loading ? (
                 [...Array(3)].map((_, idx) => (
                   <tr key={idx} className="animate-pulse">
@@ -192,7 +188,7 @@ export default function AdminCategoriesPage() {
                     key={category.id}
                     className="hover:bg-slate-50/50 dark:hover:bg-zinc-950/30 transition-colors group"
                   >
-                    {/* Kolom Nama Kategori / Form Edit Inline */}
+                    
                     <td className="px-6 py-4 font-semibold text-slate-900 dark:text-white whitespace-nowrap overflow-hidden">
                       {editingId === category.id ? (
                         <div className="flex items-center gap-2 max-w-md">
@@ -229,14 +225,14 @@ export default function AdminCategoriesPage() {
                       )}
                     </td>
 
-                    {/* Kolom Jumlah Produk Terpusat */}
+                    
                     <td className="px-6 py-4 text-center font-bold text-slate-600 dark:text-zinc-400 whitespace-nowrap overflow-hidden">
                       <span className="inline-flex items-center justify-center px-2.5 py-0.5 bg-slate-100 dark:bg-zinc-800 rounded-full text-xs font-bold text-slate-700 dark:text-zinc-300">
                         {(category as any).products?.length || 0} Item
                       </span>
                     </td>
 
-                    {/* Kolom Tombol Aksi Terpusat */}
+                    
                     <td className="px-6 py-4 text-center whitespace-nowrap overflow-hidden">
                       {editingId !== category.id && (
                         <div className="inline-flex items-center justify-center gap-1.5">
@@ -261,7 +257,7 @@ export default function AdminCategoriesPage() {
                 ))
               )}
 
-              {/* Tampilan Jika Data Kosong */}
+              
               {!loading && categories.length === 0 && (
                 <tr>
                   <td colSpan={3} className="text-center py-16 text-slate-400 dark:text-zinc-500 font-medium">

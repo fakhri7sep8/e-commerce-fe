@@ -3,16 +3,12 @@ import { useState } from 'react';
 import axiosClient from '@/lib/axiosClient';
 import { Order } from '@/types';
 
-/**
- * Hook untuk operasi order (checkout & riwayat)
- */
+
 export function useOrders() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  /**
-   * Checkout: cart → order (customer)
-   */
+  
   const checkout = async (): Promise<Order> => {
     setLoading(true);
     setError(null);
@@ -28,9 +24,7 @@ export function useOrders() {
     }
   };
 
-  /**
-   * Ambil riwayat order milik user yang login
-   */
+  
   const getMyOrders = async (): Promise<Order[]> => {
     setLoading(true);
     setError(null);
@@ -45,9 +39,7 @@ export function useOrders() {
     }
   };
 
-  /**
-   * Ambil semua order (admin only)
-   */
+  
   const getAllOrders = async (): Promise<Order[]> => {
     setLoading(true);
     setError(null);
@@ -62,9 +54,7 @@ export function useOrders() {
     }
   };
 
-  /**
-   * Update status order (admin only)
-   */
+  
   const updateStatus = async (id: string, status: string): Promise<Order> => {
     setLoading(true);
     setError(null);

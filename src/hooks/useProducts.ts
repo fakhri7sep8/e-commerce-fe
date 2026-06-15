@@ -21,16 +21,12 @@ export interface UpdateProductData {
   categoryId?: string;
 }
 
-/**
- * Hook untuk CRUD produk
- */
+
 export function useProducts() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  /**
-   * Ambil semua produk
-   */
+ 
   const getAll = async (): Promise<Product[]> => {
     setLoading(true);
     setError(null);
@@ -45,9 +41,7 @@ export function useProducts() {
     }
   };
 
-  /**
-   * Ambil satu produk berdasarkan ID
-   */
+ 
   const getById = async (id: string): Promise<Product> => {
     setLoading(true);
     setError(null);
@@ -62,9 +56,7 @@ export function useProducts() {
     }
   };
 
-  /**
-   * Buat produk baru (admin only)
-   */
+
   const create = async (data: CreateProductData): Promise<Product> => {
     setLoading(true);
     setError(null);
@@ -80,9 +72,7 @@ export function useProducts() {
     }
   };
 
-  /**
-   * Update produk (admin only)
-   */
+ 
   const update = async (id: string, data: UpdateProductData): Promise<Product> => {
     setLoading(true);
     setError(null);
@@ -98,9 +88,7 @@ export function useProducts() {
     }
   };
 
-  /**
-   * Hapus produk (admin only)
-   */
+
   const remove = async (id: string) => {
     setLoading(true);
     setError(null);

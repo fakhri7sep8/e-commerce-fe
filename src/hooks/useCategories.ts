@@ -3,16 +3,12 @@ import { useState } from 'react';
 import axiosClient from '@/lib/axiosClient';
 import { Category } from '@/types';
 
-/**
- * Hook untuk CRUD kategori
- */
+
 export function useCategories() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  /**
-   * Ambil semua kategori
-   */
+  
   const getAll = async (): Promise<Category[]> => {
     setLoading(true);
     setError(null);
@@ -27,9 +23,7 @@ export function useCategories() {
     }
   };
 
-  /**
-   * Buat kategori baru (admin only)
-   */
+  
   const create = async (name: string): Promise<Category> => {
     setLoading(true);
     setError(null);
@@ -45,9 +39,7 @@ export function useCategories() {
     }
   };
 
-  /**
-   * Update kategori (admin only)
-   */
+  
   const update = async (id: string, name: string): Promise<Category> => {
     setLoading(true);
     setError(null);
@@ -63,9 +55,7 @@ export function useCategories() {
     }
   };
 
-  /**
-   * Hapus kategori (admin only)
-   */
+  
   const remove = async (id: string) => {
     setLoading(true);
     setError(null);

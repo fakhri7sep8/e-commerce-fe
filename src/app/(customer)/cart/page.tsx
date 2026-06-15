@@ -126,9 +126,7 @@ export default function CartPage() {
   const totalPrice = cartItems.reduce(
     (total, item) => total + Number(item.product.price) * item.quantity,
     0,
-  );
-
-  // Modern Skeleton Loading State
+  );
   if (loading) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-8 animate-pulse space-y-6">
@@ -141,7 +139,7 @@ export default function CartPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 selection:bg-indigo-500 selection:text-white">
-      {/* Title Header */}
+      
       <div className="mb-8">
         <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-2.5">
           <span>Keranjang Belanja</span>
@@ -172,7 +170,7 @@ export default function CartPage() {
       ) : (
         <div className="space-y-6">
           
-          {/* DESKTOP TABLE VIEW */}
+          
           <div className="hidden md:block bg-white dark:bg-zinc-900 rounded-3xl shadow-sm border border-slate-200/60 dark:border-zinc-800/80 overflow-hidden">
             <table className="w-full border-collapse">
               <thead>
@@ -237,7 +235,7 @@ export default function CartPage() {
             </table>
           </div>
 
-          {/* MOBILE RESPONSIVE LIST CARD VIEW */}
+          
           <div className="block md:hidden space-y-4">
             {cartItems.map((item) => (
               <div key={item.id} className="bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800/80 rounded-2xl p-4 shadow-sm space-y-3.5">
@@ -289,7 +287,7 @@ export default function CartPage() {
             ))}
           </div>
 
-          {/* TOTAL SUMMARY & CHECKOUT BOX */}
+          
           <div className="bg-white dark:bg-zinc-900 rounded-3xl border border-slate-200/60 dark:border-zinc-800/80 p-6 flex flex-col sm:flex-row justify-between items-center gap-6 shadow-sm">
             <div className="text-center sm:text-left">
               <p className="text-xs font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider mb-0.5">

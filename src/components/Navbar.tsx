@@ -24,7 +24,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
-          {/* LOGO */}
+          
           <div className="flex items-center">
             <Link href={isAdmin ? "/admin" : "/products"} className="flex items-center gap-2 font-black text-xl tracking-tight text-slate-950 dark:text-white">
               <span className="bg-indigo-600 text-white p-1.5 rounded-xl text-sm shadow-md shadow-indigo-500/20">
@@ -41,7 +41,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* DESKTOP NAVIGATION LINKS */}
+          
           <div className="hidden md:flex items-center gap-1.5">
             {isAdmin ? (
               <>
@@ -70,7 +70,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* DESKTOP USER PROFILE & DROPDOWN */}
+          
           <div className="hidden md:flex items-center gap-4">
             {profile ? (
               <div className="relative">
@@ -109,7 +109,7 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* MOBILE HAMBURGER BUTTON */}
+          
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -131,7 +131,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE PANEL NAVIGATION */}
+      
       {isOpen && (
         <div className="md:hidden bg-white dark:bg-zinc-900 border-b border-slate-200 dark:border-zinc-800 px-4 pt-2 pb-4 space-y-1">
           {isAdmin ? (

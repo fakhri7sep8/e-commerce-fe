@@ -22,9 +22,7 @@ export default function ProductsPage() {
 
   const handleAddToCart = async (productId: string, productName: string) => {
     try {
-      await addItem(productId, 1);
-      
-      // Toast notification premium penambah barang
+      await addItem(productId, 1);
       Swal.fire({
         icon: 'success',
         title: 'Berhasil dimasukkan!',
@@ -47,9 +45,7 @@ export default function ProductsPage() {
         color: document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000',
       });
     }
-  };
-
-  // Premium Grid Skeleton Loading
+  };
   if (loading) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-pulse space-y-8">
@@ -66,7 +62,7 @@ export default function ProductsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 selection:bg-indigo-500 selection:text-white">
       
-      {/* Page Title */}
+      
       <div className="mb-8">
         <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-2.5">
           <span>Semua Produk</span>
@@ -99,7 +95,7 @@ export default function ProductsPage() {
                 key={product.id}
                 className="bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-zinc-700 transition-all duration-300 group flex flex-col h-full"
               >
-                {/* Product Thumbnail Container */}
+                
                 <div className="h-52 bg-slate-100 dark:bg-zinc-950 flex items-center justify-center relative overflow-hidden border-b border-slate-100 dark:border-zinc-800/60">
                   {product.imageUrl ? (
                     <img
@@ -111,7 +107,7 @@ export default function ProductsPage() {
                     <span className="text-slate-400 dark:text-zinc-600 text-5xl group-hover:scale-110 transition-transform duration-300">📦</span>
                   )}
                   
-                  {/* Category Pill Tag */}
+                  
                   {product.category && (
                     <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm text-slate-700 dark:text-zinc-300 px-2.5 py-1 rounded-xl shadow-sm border border-slate-200/40 dark:border-zinc-700/50">
                       {product.category.name}
@@ -119,7 +115,7 @@ export default function ProductsPage() {
                   )}
                 </div>
 
-                {/* Card Main Body Content */}
+                
                 <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
                   <div className="space-y-1.5">
                     <Link href={`/products/${product.id}`}>
@@ -133,7 +129,7 @@ export default function ProductsPage() {
                     </p>
                   </div>
 
-                  {/* Stock & Action Button Group */}
+                  
                   <div className="space-y-3 pt-1">
                     <div className="flex justify-between items-center text-xs font-semibold">
                       <span className="text-slate-400 dark:text-zinc-500">Ketersediaan</span>

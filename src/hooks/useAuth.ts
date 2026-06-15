@@ -18,17 +18,12 @@ interface RegisterData {
   password: string;
 }
 
-/**
- * Hook untuk autentikasi (login, register, logout, getProfile)
- */
+
 export function useAuth() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  /**
-   * Login user
-   * Cookie access_token otomatis diset oleh backend (httpOnly)
-   */
+  
   const login = async (
     email: string,
     password: string,
@@ -50,9 +45,7 @@ export function useAuth() {
     }
   };
 
-  /**
-   * Register user baru
-   */
+  
   const register = async (data: RegisterData) => {
     setLoading(true);
     setError(null);
@@ -72,7 +65,7 @@ export function useAuth() {
     setLoading(true);
     try {
       await axiosClient.post("/auth/logout");
-      Cookies.remove("access_token"); // ← tambah ini
+      Cookies.remove("access_token");
       window.location.href = "/login";
     } catch (err: any) {
       setError("Logout gagal");

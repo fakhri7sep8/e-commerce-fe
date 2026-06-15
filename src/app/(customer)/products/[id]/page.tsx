@@ -56,9 +56,7 @@ export default function ProductDetailPage() {
         color: document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000',
       });
     }
-  };
-
-  // Premium Custom Skeleton Loader
+  };
   if (loading) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-8 animate-pulse space-y-6">
@@ -74,7 +72,7 @@ export default function ProductDetailPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 selection:bg-indigo-500 selection:text-white">
-      {/* Back Button Link */}
+      
       <button
         onClick={() => router.back()}
         className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 mb-6 transition-colors group"
@@ -82,11 +80,11 @@ export default function ProductDetailPage() {
         <span className="group-hover:-translate-x-1 transition-transform">←</span> Kembali ke Produk
       </button>
 
-      {/* Main Container Card */}
+      
       <div className="bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800/80 rounded-3xl overflow-hidden shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-2">
           
-          {/* LEFT SIDE: Product Visual Stage */}
+          
           <div className="h-96 md:h-full min-h-[380px] bg-slate-50 dark:bg-zinc-950 flex items-center justify-center relative p-6 border-b md:border-b-0 md:border-r border-slate-100 dark:border-zinc-800/70">
             {product.imageUrl ? (
               <img
@@ -105,7 +103,7 @@ export default function ProductDetailPage() {
             )}
           </div>
 
-          {/* RIGHT SIDE: Product Detailed Information */}
+          
           <div className="p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
@@ -120,7 +118,7 @@ export default function ProductDetailPage() {
 
               <hr className="border-slate-100 dark:border-zinc-800/80" />
 
-              {/* Description Box */}
+              
               <div className="space-y-1.5">
                 <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Deskripsi Produk</h3>
                 <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed max-w-prose">
@@ -129,7 +127,7 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
-            {/* Bottom Interaction Area */}
+            
             <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-zinc-800/80">
               <div className="flex justify-between items-center text-xs font-semibold">
                 <span className="text-slate-400 dark:text-zinc-500">Status Ketersediaan</span>
@@ -168,7 +166,7 @@ export default function ProductDetailPage() {
                 </div>
               )}
 
-              {/* Add to Basket Action Button */}
+              
               <button
                 onClick={handleAddToCart}
                 disabled={isOutOfStock}

@@ -1,8 +1,3 @@
-/**
- * Type definitions untuk E-Commerce
- * Sama dengan struktur entity di backend NestJS
- */
-
 export interface User {
   id: string;
   name: string;

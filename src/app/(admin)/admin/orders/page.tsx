@@ -6,9 +6,7 @@ import { Order } from '@/types';
 import { ClipboardList, Calendar, ChevronDown } from 'lucide-react';
 import Swal from 'sweetalert2';
 
-/**
- * Palet warna premium badge untuk setiap status order
- */
+
 const statusColors: Record<string, string> = {
   pending: 'bg-amber-50 text-amber-700 border-amber-200/60 dark:bg-amber-950/20 dark:text-amber-400 dark:border-amber-900/30',
   paid: 'bg-indigo-50 text-indigo-700 border-indigo-200/60 dark:bg-indigo-950/20 dark:text-indigo-400 dark:border-indigo-900/30',
@@ -81,7 +79,7 @@ export default function AdminOrdersPage() {
   return (
     <div className="w-full space-y-8 selection:bg-indigo-500 selection:text-white">
       
-      {/* Dashboard Headline */}
+      
       <div>
         <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white">
           Daftar Pesanan
@@ -91,7 +89,7 @@ export default function AdminOrdersPage() {
         </p>
       </div>
 
-      {/* Main Container Tabel */}
+      
       <div className="bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800/80 rounded-2xl shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full table-fixed min-w-[850px] text-sm">
@@ -99,7 +97,7 @@ export default function AdminOrdersPage() {
               <tr>
                 <th className="w-[30%] px-6 py-4 text-left font-bold">Customer</th>
                 <th className="w-[20%] px-6 py-4 text-left font-bold">Tanggal</th>
-                {/* Diubah menjadi text-center biar pas di tengah kolom */}
+                
                 <th className="w-[20%] px-6 py-4 text-center font-bold">Total Pembayaran</th>
                 <th className="w-[15%] px-6 py-4 text-center font-bold">Status</th>
                 <th className="w-[15%] px-6 py-4 text-center font-bold">Aksi Status</th>
@@ -107,7 +105,7 @@ export default function AdminOrdersPage() {
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-zinc-800/50">
               
-              {/* Shimmer Bone Skeleton Loader */}
+              
               {loading ? (
                 [...Array(4)].map((_, idx) => (
                   <tr key={idx} className="animate-pulse">
@@ -116,7 +114,7 @@ export default function AdminOrdersPage() {
                       <div className="h-4 bg-slate-200 dark:bg-zinc-800 rounded w-32" />
                     </td>
                     <td className="px-6 py-4"><div className="h-4 bg-slate-200 dark:bg-zinc-800 rounded w-24" /></td>
-                    {/* Skeleton loader harga disesuaikan mx-auto */}
+                    
                     <td className="px-6 py-4"><div className="h-4 bg-slate-200 dark:bg-zinc-800 rounded w-20 mx-auto" /></td>
                     <td className="px-6 py-4"><div className="h-5 bg-slate-200 dark:bg-zinc-800 rounded-full w-14 mx-auto" /></td>
                     <td className="px-6 py-4"><div className="h-7 bg-slate-200 dark:bg-zinc-800 rounded-lg w-24 mx-auto" /></td>
@@ -132,7 +130,7 @@ export default function AdminOrdersPage() {
                       key={order.id}
                       className="hover:bg-slate-50/50 dark:hover:bg-zinc-950/30 transition-colors group"
                     >
-                      {/* Detail Customer Avatar Bulat */}
+                      
                       <td className="px-6 py-4 font-semibold text-slate-900 dark:text-white whitespace-nowrap overflow-hidden">
                         <div className="flex items-center gap-2.5">
                           <div className="w-7 h-7 rounded-full bg-slate-100 dark:bg-zinc-800 text-slate-600 dark:text-zinc-300 border border-slate-200 dark:border-zinc-700/60 text-xs font-bold flex items-center justify-center shrink-0">
@@ -144,7 +142,7 @@ export default function AdminOrdersPage() {
                         </div>
                       </td>
 
-                      {/* Tanggal Terformat Lokal Indonesia */}
+                      
                       <td className="px-6 py-4 text-slate-500 dark:text-zinc-400 font-medium whitespace-nowrap overflow-hidden">
                         <span className="inline-flex items-center gap-1.5">
                           <Calendar className="w-3.5 h-3.5 text-slate-400" />
@@ -156,12 +154,12 @@ export default function AdminOrdersPage() {
                         </span>
                       </td>
 
-                      {/* Total Pembayaran (Ubah ke text-center agar center-aligned lurus dengan headernya) */}
+                      
                       <td className="px-6 py-4 text-center font-black text-slate-900 dark:text-white whitespace-nowrap overflow-hidden">
                         Rp {Number(order.totalPrice).toLocaleString('id-ID')}
                       </td>
 
-                      {/* Status Badge Bordered */}
+                      
                       <td className="px-6 py-4 text-center whitespace-nowrap overflow-hidden">
                         <span
                           className={`inline-flex items-center justify-center px-2.5 py-0.5 border text-xs font-bold rounded-full tracking-wide ${
@@ -172,7 +170,7 @@ export default function AdminOrdersPage() {
                         </span>
                       </td>
 
-                      {/* Dropdown Manipulasi Ubah Status Premium */}
+                      
                       <td className="px-6 py-4 text-center whitespace-nowrap overflow-hidden">
                         <div className="relative inline-flex items-center justify-center">
                           <select
@@ -193,7 +191,7 @@ export default function AdminOrdersPage() {
                 })
               )}
 
-              {/* Tampilan Jika Data Kosong */}
+              
               {!loading && orders.length === 0 && (
                 <tr>
                   <td colSpan={5} className="text-center py-16 text-slate-400 dark:text-zinc-500 font-medium">

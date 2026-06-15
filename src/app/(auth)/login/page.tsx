@@ -35,11 +35,9 @@ export default function LoginPage() {
     }
 
     try {
-      const user = await login(email, password);
-
-      // Menyimpan access token ke dalam cookies selama 15 menit (1/96 hari)
+      const user = await login(email, password);
       Cookies.set('access_token', (user as any).access_token, {
-        expires: 1 / 96, // 15 menit
+        expires: 1 / 96,
         secure: true,
         sameSite: 'strict',
       });
@@ -81,12 +79,12 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-slate-50 dark:bg-zinc-950 p-4 sm:p-6 md:p-8 relative selection:bg-indigo-500 selection:text-white">
-      {/* Background Decorative Glow (Gak bikin layout rusak) */}
+      
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-112.5 pointer-events-none opacity-30 dark:opacity-20 blur-[130px] bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500" />
 
-      {/* Main Card Container (Lebih Megah & Lapang) */}
+      
       <div className="w-full max-w-4xl bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl shadow-indigo-500/5 border border-slate-200/60 dark:border-zinc-800/80 overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-137.5 relative z-10">
-        {/* KOLOM KIRI: Visual Branding (Muncul di Tablet & Laptop) */}
+        
         <div className="hidden md:flex bg-linear-to-br from-indigo-600 via-violet-600 to-purple-700 p-10 flex-col justify-between relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_50%)]" />
 
@@ -117,9 +115,9 @@ export default function LoginPage() {
           </div>
         </div>
 
-        {/* KOLOM KANAN: Form Login (Responsif dan Mengikuti Ukuran Kontainer) */}
+        
         <div className="flex flex-col justify-center p-6 sm:p-10 md:p-12 bg-white dark:bg-zinc-900 w-full">
-          {/* Header Mobile Only */}
+          
           <div className="flex justify-between items-center md:hidden mb-6">
             <Link
               href="/"
@@ -140,7 +138,7 @@ export default function LoginPage() {
             </Link>
           </div>
 
-          {/* Back Button Laptop Only */}
+          
           <div className="hidden md:block mb-6">
             <Link
               href="/"
@@ -163,7 +161,7 @@ export default function LoginPage() {
             </Link>
           </div>
 
-          {/* Form Title */}
+          
           <div className="mb-6">
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-1.5">
               Masuk Akun
@@ -173,7 +171,7 @@ export default function LoginPage() {
             </p>
           </div>
 
-          {/* Form Utama */}
+          
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-1.5">
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
@@ -284,7 +282,7 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Footer Register */}
+          
           <div className="mt-6 pt-4 border-t border-slate-100 dark:border-zinc-800 text-center">
             <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400">
               Belum punya akun?{" "}

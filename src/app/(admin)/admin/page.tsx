@@ -32,9 +32,7 @@ export default function AdminDashboard() {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, []);
-
-  // Konfigurasi warna ikon bergaya minimalis premium (Border + Soft Background)
+  }, []);
   const cards = [
     { 
       label: 'Total Produk', 
@@ -54,9 +52,7 @@ export default function AdminDashboard() {
       style: 'bg-emerald-50 border-emerald-100 text-emerald-600 dark:bg-emerald-950/20 dark:border-emerald-900/40 dark:text-emerald-400', 
       icon: '📋' 
     },
-  ];
-
-  // Shimmer Pulse Grid Skeleton
+  ];
   if (loading) {
     return (
       <div className="animate-pulse space-y-8 w-full">
@@ -73,7 +69,7 @@ export default function AdminDashboard() {
   return (
     <div className="w-full selection:bg-indigo-500 selection:text-white">
       
-      {/* Dashboard Headline */}
+      
       <div className="mb-8">
         <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white">
           Dashboard Overview
@@ -83,22 +79,22 @@ export default function AdminDashboard() {
         </p>
       </div>
 
-      {/* Modern Analytics Bento Cards Grid */}
+      
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {cards.map((card) => (
           <div
             key={card.label}
             className="bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800/80 rounded-2xl p-6 flex items-center gap-5 shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-300 dark:hover:border-zinc-700 group relative overflow-hidden"
           >
-            {/* Top Light Accent Glow Effect */}
+            
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-slate-200 dark:via-zinc-800 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-            {/* Icon Wrapper Badge */}
+            
             <div className={`w-14 h-14 rounded-xl border flex items-center justify-center text-2xl shrink-0 shadow-inner group-hover:scale-105 transition-transform duration-300 ${card.style}`}>
               {card.icon}
             </div>
 
-            {/* Information Label & Value */}
+            
             <div className="space-y-0.5 min-w-0">
               <p className="text-xs font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-wider block truncate">
                 {card.label}

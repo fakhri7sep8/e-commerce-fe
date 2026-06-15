@@ -3,16 +3,12 @@ import { useState } from 'react';
 import axiosClient from '@/lib/axiosClient';
 import { CartItem } from '@/types';
 
-/**
- * Hook untuk operasi keranjang belanja (cart)
- */
+
 export function useCart() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  /**
-   * Ambil semua item di cart user yang login
-   */
+  
   const getCart = async (): Promise<CartItem[]> => {
     setLoading(true);
     setError(null);
@@ -27,9 +23,7 @@ export function useCart() {
     }
   };
 
-  /**
-   * Tambah item ke cart (auto update quantity jika sudah ada)
-   */
+  
   const addItem = async (productId: string, quantity: number = 1) => {
     setLoading(true);
     setError(null);
@@ -45,9 +39,7 @@ export function useCart() {
     }
   };
 
-  /**
-   * Update quantity item di cart
-   */
+  
   const updateItem = async (id: string, quantity: number) => {
     setLoading(true);
     setError(null);
@@ -63,9 +55,7 @@ export function useCart() {
     }
   };
 
-  /**
-   * Hapus item dari cart
-   */
+  
   const removeItem = async (id: string) => {
     setLoading(true);
     setError(null);

@@ -31,10 +31,10 @@ export default function AdminLayout({
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-50 flex transition-colors duration-300 selection:bg-indigo-500 selection:text-white">
       
-      {/* SIDEBAR: Admin Control Center */}
+      
       <aside className="w-64 bg-white dark:bg-zinc-900 border-r border-slate-200/60 dark:border-zinc-800/80 flex flex-col shrink-0 sticky top-0 h-screen">
         
-        {/* Header Logo & Profil Admin */}
+        
         <div className="p-6 border-b border-slate-100 dark:border-zinc-800/70">
           <Link href="/admin" className="text-xl font-black tracking-tight text-indigo-600 dark:text-indigo-400 flex items-center gap-2">
             <span>🛡️</span> Admin Panel
@@ -51,10 +51,9 @@ export default function AdminLayout({
           )}
         </div>
 
-        {/* List Navigasi Sidebar */}
+        
         <nav className="flex-1 p-4 space-y-1.5 overflow-y-auto">
-          {navItems.map((item) => {
-            // Evaluasi mencakup pencocokan sub-route agar menu tetap menyala aktif
+          {navItems.map((item) => {
             const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href));
             
             return (
@@ -67,7 +66,7 @@ export default function AdminLayout({
                     : 'text-slate-500 dark:text-zinc-400 hover:bg-slate-50 dark:hover:bg-zinc-800/50 hover:text-slate-800 dark:hover:text-zinc-200'
                 }`}
               >
-                {/* Active Indicator Bar Line */}
+                
                 {isActive && (
                   <div className="absolute left-0 top-3 bottom-3 w-1 bg-indigo-600 dark:bg-indigo-400 rounded-r-md" />
                 )}
@@ -81,7 +80,7 @@ export default function AdminLayout({
           })}
         </nav>
 
-        {/* Footer Sidebar: Logout Action Button */}
+        
         <div className="p-4 border-t border-slate-100 dark:border-zinc-800/70">
           <button
             onClick={logout}
@@ -93,7 +92,7 @@ export default function AdminLayout({
         </div>
       </aside>
 
-      {/* VIEWPORT MAIN STAGE: Tempat disuntikkannya Halaman Konten Admin */}
+      
       <main className="flex-1 p-6 md:p-8 overflow-y-auto max-w-400 mx-auto w-full">
         {children}
       </main>

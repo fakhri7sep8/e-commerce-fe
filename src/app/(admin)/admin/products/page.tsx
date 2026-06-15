@@ -22,9 +22,7 @@ export default function AdminProductsPage() {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // State form
+  const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState<ProductFormData>({
@@ -177,7 +175,7 @@ export default function AdminProductsPage() {
   return (
     <div className="w-full space-y-8 selection:bg-indigo-500 selection:text-white">
       
-      {/* Header Utama */}
+      
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white">
@@ -196,12 +194,12 @@ export default function AdminProductsPage() {
         </button>
       </div>
 
-      {/* Form Modal (Pop-up Backdrop) */}
+      
       {showForm && (
         <div className="fixed inset-0 bg-zinc-950/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
           <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-hidden flex flex-col">
             
-            {/* Modal Header */}
+            
             <div className="p-6 border-b border-slate-100 dark:border-zinc-800/60 flex justify-between items-center shrink-0">
               <h2 className="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
                 <Package className="w-5 h-5 text-indigo-500" />
@@ -215,7 +213,7 @@ export default function AdminProductsPage() {
               </button>
             </div>
 
-            {/* Modal Scrollable Content */}
+            
             <form onSubmit={handleSubmit} className="p-6 space-y-5 overflow-y-auto flex-1 text-sm">
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-zinc-500 mb-1.5">
@@ -309,7 +307,7 @@ export default function AdminProductsPage() {
                 </div>
               </div>
 
-              {/* Action Buttons Modal */}
+              
               <div className="flex gap-3 pt-3 shrink-0">
                 <button
                   type="button"
@@ -330,7 +328,7 @@ export default function AdminProductsPage() {
         </div>
       )}
 
-      {/* Tabel Data Produk Premium */}
+      
       <div className="bg-white dark:bg-zinc-900 border border-slate-200/60 dark:border-zinc-800/80 rounded-2xl shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -345,7 +343,7 @@ export default function AdminProductsPage() {
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-zinc-800/50">
               
-              {/* Animasi Shimmer Loading Grid Table */}
+              
               {loading ? (
                 [...Array(4)].map((_, idx) => (
                   <tr key={idx} className="animate-pulse">
@@ -365,12 +363,11 @@ export default function AdminProductsPage() {
                     key={product.id}
                     className="hover:bg-slate-50/50 dark:hover:bg-zinc-950/30 transition-colors group"
                   >
-                    {/* Thumbnail + Nama Produk */}
+                    
                     <td className="px-6 py-4 font-semibold text-slate-900 dark:text-white max-w-xs">
                       <div className="flex items-center gap-3 min-w-0">
                         <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-zinc-950 border border-slate-200/60 dark:border-zinc-800/60 overflow-hidden shrink-0 flex items-center justify-center relative">
-                          {product.imageUrl ? (
-                            // eslint-disable-next-line @next/next/no-img-element
+                          {product.imageUrl ? (
                             <img 
                               src={product.imageUrl} 
                               alt={product.name}
@@ -386,12 +383,12 @@ export default function AdminProductsPage() {
                       </div>
                     </td>
 
-                    {/* Harga Terformat */}
+                    
                     <td className="px-6 py-4 text-right font-bold text-slate-700 dark:text-zinc-300">
                       Rp {Number(product.price).toLocaleString('id-ID')}
                     </td>
 
-                    {/* Badge Status Stok */}
+                    
                     <td className="px-6 py-4 text-center whitespace-nowrap">
                       <span
                         className={`inline-flex items-center justify-center px-2.5 py-1 rounded-full text-xs font-bold tracking-wide ${
@@ -404,7 +401,7 @@ export default function AdminProductsPage() {
                       </span>
                     </td>
 
-                    {/* Nama Kategori */}
+                    
                     <td className="px-6 py-4 text-slate-600 dark:text-zinc-400 font-medium whitespace-nowrap">
                       {product.category?.name ? (
                         <span className="inline-flex items-center gap-1.5">
@@ -416,7 +413,7 @@ export default function AdminProductsPage() {
                       )}
                     </td>
 
-                    {/* Action Buttons */}
+                    
                     <td className="px-6 py-4 text-center whitespace-nowrap">
                       <div className="flex items-center justify-center gap-3">
                         <button
@@ -440,7 +437,7 @@ export default function AdminProductsPage() {
                 ))
               )}
 
-              {/* Fallback Jika Array Kosong */}
+              
               {!loading && products.length === 0 && (
                 <tr>
                   <td colSpan={5} className="text-center py-12 text-slate-400 dark:text-zinc-500 font-medium">
